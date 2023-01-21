@@ -1,0 +1,1 @@
+Pyinstaller --onefile .\gui.py

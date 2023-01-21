@@ -1,0 +1,8 @@
+token.txt
+*.csv
+
+*.spec
+__pycache__/
+.vscode/
+build/
+dist/
