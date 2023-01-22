@@ -19,14 +19,15 @@ class App(tk.Frame):
 
         padding = {"padx": 5, "pady": 5}
 
-        window.title("Winner Odds Bet History Exporter")
-        window.geometry('200x180')
+        window.title("WinnerOdds Bet History Exporter")
+        window.geometry('300x180')
         window.grid_columnconfigure(0, weight=1)
         window.grid_columnconfigure(1, weight=1)
 
         Label(window, text="Start Date").grid(column=0, row=0)
         Label(window, text="End Date").grid(column=0, row=1)
         Label(window, text="Sport").grid(column=0, row=2)
+        Label(window, text="").grid(column=0, row=3)
 
         self.startdate = Entry(window)
         self.startdate.grid(column=1, row=0, **padding)
@@ -41,12 +42,10 @@ class App(tk.Frame):
         sport = OptionMenu(window, self.sportVar, "TENNIS", "FOOTBALL")
         sport.grid(column=1, row=2, **padding)
 
-        Label("").grid(column=0, row=3)
-
         btn = Button(window, text="Download CSV", command=self.clicked)
         btn.grid(column=0, row=4, columnspan=2)
 
-        self.progress = Label("")
+        self.progress = Label(window, text="")
         self.progress.grid(column=0, row=5, columnspan=2)
     
 
