@@ -2,10 +2,9 @@
 
 Export your betting history from [WinnerOdds](https://winnerodds.com/) to a CSV file. This makes direct calls to the API.
 
-Precompiled binaries can be found in [Releases](https://github.com/arsym-dev/WinnerOddsExport/releases).
+Precompiled binaries for Windows and MacOS can be found in [Releases](https://github.com/arsym-dev/WinnerOddsExport/releases).
 
 ![Main UI](img/main.png)
-![Betting data](img/bet_history.png)
 
 ## Usage
 
@@ -15,6 +14,8 @@ Precompiled binaries can be found in [Releases](https://github.com/arsym-dev/Win
 4. Press "Download CSV"
 
 It may take a few minutes if you have a large number of bets.
+
+![Betting data](img/bet_history.png)
 
 ## Running from source
 

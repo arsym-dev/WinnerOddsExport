@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter.messagebox import *
 from datetime import datetime
 import threading
+import platform
 
 from winnerodds_export_csv import *
 
@@ -19,14 +20,19 @@ class App(tk.Frame):
 
         padding = {"padx": 5, "pady": 5}
 
+        ## Load token
         if os.path.exists("token.txt"):
             with open("token.txt") as f:
                 token = f.read()
         else:
             token = ""
 
+        ## Create window
         window.title("WinnerOdds Bet History Exporter")
-        window.geometry('300x200')
+        if platform.system().lower == "darwin": # MAC OS
+            window.geometry('300x220')
+        else:
+            window.geometry('300x200')
         window.grid_columnconfigure(0, weight=1)
         window.grid_columnconfigure(1, weight=1)
 
@@ -61,6 +67,7 @@ class App(tk.Frame):
     
 
     def clicked(self):
+        ## Validate dates
         sd = self.startdate.get()
         try:
             datetime.strptime(sd, datetime_format)
@@ -75,11 +82,14 @@ class App(tk.Frame):
             tk.messagebox.showerror(title="Error", message="Invalid end date. Must be YYYY-MM-DD")
             return
         
-        ## Clean the token and save to file
+        ## Validate token and save to file
         token = self.tokField.get()
         if token.startswith("Bearer "):
             token = token[len("Bearer "):]
         token = token.strip()
+
+        if token == "":
+            tk.messagebox.showerror(title="Error", message="Token cannot be empty")
 
         with open("token.txt", "w") as f:
             f.write(token)
