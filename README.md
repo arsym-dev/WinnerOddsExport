@@ -23,19 +23,24 @@ It may take a few minutes if you have a large number of bets.
 2. Open a terminal and install all the dependencies:
 
 ```bash
-pip3 install request python-dateutil tk
+pip3 install requests python-dateutil tk
 ```
 
 3. In the terminal, clone this repository and navigate to it:
 
 ```bash
 git clone https://github.com/arsym-dev/WinnerOddsExport.git
-cd WinnerOddsExport
+```
+
+If you're on MacOS and the above instruction fails, try running this first:
+```bash
+xcode-select --install
 ```
 
 4. Finally, run the GUI:
 
 ```bash
+cd WinnerOddsExport
 python3 gui.py
 ```
 
